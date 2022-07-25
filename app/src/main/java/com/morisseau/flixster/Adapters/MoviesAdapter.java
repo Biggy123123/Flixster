@@ -67,6 +67,12 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.VideoAdapt
         public void bind(Movie movie) {
             tvTitle.setText(movie.getTitle());
             tvOverview.setText(movie.getOverview());
+           // String img;
+            //if (context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+             //   img=movie.getBackdropPath();
+            //}else{
+            //    img=movie.getPosterPath();
+           // }
             Glide.with(context).load(movie.getPosterPath()).into(ivPoster);
         }
     }

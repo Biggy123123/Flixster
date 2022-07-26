@@ -61,7 +61,7 @@ import java.util.List;
             tvOverview = itemView.findViewById(R.id.tvOverview);
         }
 
-        public void bind(Movie movie) {
+        public void bind(@NonNull Movie movie) {
             tvTitle.setText(movie.getTitle());
             tvOverview.setText(movie.getOverview());
             String img;

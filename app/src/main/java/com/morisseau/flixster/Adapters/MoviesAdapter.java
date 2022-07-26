@@ -2,24 +2,21 @@ package com.morisseau.flixster.Adapters;
 
 import android.content.Context;
 import android.util.Log;
+import android.content.res.Configuration;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.work.Configuration;
-
 import com.bumptech.glide.Glide;
-import com.morisseau.flixster.Models.Movie;
 import com.morisseau.flixster.Models.Movie;
 import com.morisseau.flixster.R;
 
 import java.util.List;
 
-public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.VideoAdapter> {
+ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.VideoAdapter> {
 
     Context context;
     List<Movie> movies;
@@ -67,13 +64,13 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.VideoAdapt
         public void bind(Movie movie) {
             tvTitle.setText(movie.getTitle());
             tvOverview.setText(movie.getOverview());
-           // String img;
-            //if (context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-             //   img=movie.getBackdropPath();
-            //}else{
-            //    img=movie.getPosterPath();
-           // }
-            Glide.with(context).load(movie.getPosterPath()).into(ivPoster);
+            String img;
+            if (context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                img=movie.getBackdropPath();
+            }else{
+                img=movie.getPosterPath();
+            }
+            Glide.with(context).load(img).placeholder(R.drawable.cine).error(R.drawable.error).into(ivPoster);
         }
     }
 }

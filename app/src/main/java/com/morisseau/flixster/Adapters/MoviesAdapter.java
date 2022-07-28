@@ -7,7 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
@@ -49,9 +51,11 @@ import java.util.List;
 
     public class VideoAdapter extends RecyclerView.ViewHolder{
 
-    TextView tvTitle;
-    ImageView ivPoster;
-    TextView tvOverview;
+        RelativeLayout container;
+        TextView tvTitle;
+        ImageView ivPoster;
+        TextView tvOverview;
+
 
 
     public VideoAdapter(@NonNull View itemView) {
@@ -59,6 +63,7 @@ import java.util.List;
         tvTitle = itemView.findViewById(R.id.tvTitle);
             ivPoster = itemView.findViewById(R.id.ivPoster);
             tvOverview = itemView.findViewById(R.id.tvOverview);
+            container=itemView.findViewById(R.id.container);
         }
 
         public void bind(@NonNull Movie movie) {
@@ -71,6 +76,7 @@ import java.util.List;
                 img=movie.getPosterPath();
             }
             Glide.with(context).load(img).placeholder(R.drawable.cine).error(R.drawable.error).into(ivPoster);
+
         }
     }
 }

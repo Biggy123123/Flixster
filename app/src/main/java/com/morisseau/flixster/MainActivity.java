@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
         RecyclerView rvMovies=findViewById(R.id.rvMovies);
         movies =new ArrayList<>();
+
         final MoviesAdapter moviesAdapter= new MoviesAdapter (this, movies);
 
         rvMovies.setAdapter(moviesAdapter);
@@ -51,13 +52,13 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     jsonObject.getJSONArray("results");
                     JSONArray results=jsonObject.getJSONArray("results");
-                    Log.i(TAG,"Results: " + results.toString());
+//                    Log.i(TAG,"Results: " + results.toString());
                     movies.addAll(Movie.FromJsonArray(results));
                     moviesAdapter.notifyDataSetChanged();
-                    Log.i(TAG,"Movies: " + movies.size());
+    //                Log.i(TAG,"Movies: " + movies.size());
 
                 } catch (JSONException e) {
-                    e.printStackTrace();
+                    Log.e(TAG,"Hit json exception",e);
                 }
             }
 

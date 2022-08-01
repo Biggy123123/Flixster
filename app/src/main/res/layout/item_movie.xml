@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/black">
@@ -33,9 +34,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:textColor="@color/white"
         android:layout_marginStart="7dp"
         android:layout_marginTop="60dp"
         android:layout_toEndOf="@+id/ivPoster"
+        android:textColor="@color/white"
         tools:text="of the Fate of the Furios Fucusing on Johnson's US Diplomat security Agent Luke Hobbs foming an unlikely allince with Statham's Deckard Shaw " />
 </RelativeLayout>
